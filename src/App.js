@@ -3,6 +3,7 @@ import Header from "./header/header";
 import FolderList from "./folderList/folderList";
 import dummyStore from "./dummy-store";
 import NoteListMain from "./noteListMain/noteListMain";
+import { Route, Link } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
@@ -13,8 +14,17 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="container">
-          <FolderList folders={dummyStore.folders} />
-          <NoteListMain notes={dummyStore.notes} />
+          <Route
+            exact
+            path="/"
+            render={() => <FolderList folders={dummyStore.folders} />}
+          />
+          <Route
+            path="/"
+            render={routeProps => (
+              <NoteListMain notes={dummyStore.notes} {...routeProps} />
+            )}
+          />
         </div>
       </div>
     );

@@ -5,7 +5,7 @@ import "./folderList.css";
 class folderList extends Component {
   render() {
     const folders = this.props.folders.map((folder, i) => (
-      <Folder {...folder} key={i} />
+      <Folder {...folder} key={folder.id} />
     ));
     return (
       <div className="folderList">

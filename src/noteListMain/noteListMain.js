@@ -4,7 +4,10 @@ import "./noteListMain.css";
 
 class NoteListMain extends Component {
   render() {
-    const notes = this.props.notes.map((note, i) => <Note {...note} key={i} />);
+    const notes = this.props.notes.map(note => (
+      <Note id={note.id} name={note.name} modified={note.modified} />
+    ));
+    console.log(notes);
     return (
       <div className="noteListMain">
         <h3 className="noteListMainTitle">All Notes:</h3>
