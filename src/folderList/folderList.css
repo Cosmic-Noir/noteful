@@ -1,6 +1,5 @@
 .folderList {
   border: 1px solid black;
-  float: left;
-  clear: left;
+  padding: 20px;
   width: 300px;
 }
