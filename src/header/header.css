@@ -1,0 +1,10 @@
+.header {
+  border: 1px solid black;
+  padding: 30px;
+  width: 100%;
+}
+
+.headerTitle {
+  position: relative;
+  right: 100px;
+}
