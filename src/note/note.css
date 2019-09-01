@@ -2,3 +2,9 @@
   border: 1px solid black;
   margin: 10px 0px;
 }
+
+.delete {
+  position: relative;
+  left: 200px;
+  bottom: 50px;
+}

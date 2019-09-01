@@ -7,6 +7,7 @@ class Note extends Component {
       <div className="note">
         <h4 className="noteTitle">{this.props.name}</h4>
         <h5 className="modified">{this.props.modified}</h5>
+        <button className="delete">Delete</button>
       </div>
     );
   }

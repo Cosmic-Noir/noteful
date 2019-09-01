@@ -9,6 +9,7 @@ class NoteListMain extends Component {
       <div className="noteListMain">
         <h3 className="noteListMainTitle">All Notes:</h3>
         {notes}
+        <button className="addNote">Add Note</button>
       </div>
     );
   }
