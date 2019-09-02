@@ -24,10 +24,15 @@ class App extends Component {
     });
   };
 
-  componentDidMount() {
-    const url = "http://localhost:9090/folders";
+  setNotes = notes => {
+    this.setState({
+      notes: notes,
+      error: null
+    });
+  };
 
-    // first fetch to get folders
+  getFolders = () => {
+    const url = "http://localhost:9090/folders";
     fetch(url, {
       method: "GET",
       headers: {
@@ -42,6 +47,29 @@ class App extends Component {
       })
       .then(this.setFolders)
       .catch(error => this.setState({ error }));
+  };
+
+  getNotes = () => {
+    const url = "http://localhost:9090/notes";
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setNotes)
+      .catch(error => this.setState({ error }));
+  };
+
+  componentDidMount() {
+    this.getFolders();
+    this.getNotes();
   }
 
   render() {
