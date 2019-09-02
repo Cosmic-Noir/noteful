@@ -31,6 +31,13 @@ class App extends Component {
     });
   };
 
+  deleteNote = noteId => {
+    const newNotes = this.state.notes.filter(note => note.id !== noteId);
+    this.setState({
+      notes: newNotes
+    });
+  };
+
   getFolders = () => {
     const url = "http://localhost:9090/folders";
     fetch(url, {
@@ -75,7 +82,8 @@ class App extends Component {
   render() {
     const contextValue = {
       folders: this.state.folders,
-      notes: this.state.notes
+      notes: this.state.notes,
+      deleteNote: this.deleteNote
     };
     // console.log(dummyStore);
     // console.log(dummyStore.folders);
