@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import noteContext from "../noteContext";
 import Note from ".././note/note";
 
 class NoteListFiltered extends Component {
+  static contextType = noteContext;
   render() {
-    const matchingNotes = this.props.notes.map(note => {
+    const matchingNotes = this.context.notes.map(note => {
       if (note.folderId === this.props.match.params.folderID) {
         return (
           <Note

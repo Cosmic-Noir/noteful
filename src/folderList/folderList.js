@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import Folder from ".././folder/folder";
+import noteContext from "../noteContext";
 import "./folderList.css";
 
 class folderList extends Component {
+  static contextType = noteContext;
+
   render() {
-    const folders = this.props.folders.map((folder, i) => (
+    const folders = this.context.folders.map((folder, i) => (
       <Folder {...folder} key={folder.id} />
     ));
     return (
