@@ -13,8 +13,36 @@ import "./App.css";
 class App extends Component {
   state = {
     folders: [],
-    notes: []
+    notes: [],
+    error: null
   };
+
+  setFolders = folders => {
+    this.setState({
+      folders: folders,
+      error: null
+    });
+  };
+
+  componentDidMount() {
+    const url = "http://localhost:9090/folders";
+
+    // first fetch to get folders
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setFolders)
+      .catch(error => this.setState({ error }));
+  }
 
   render() {
     const contextValue = {
