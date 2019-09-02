@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./header/header";
 import FolderList from "./folderList/folderList";
-import dummyStore from "./dummy-store";
+// import dummyStore from "./dummy-store";
 import NoteListMain from "./noteListMain/noteListMain";
 import { Route } from "react-router-dom";
 import NoteListFiltered from "./noteListFiltered/noteListFiltered";
@@ -28,48 +28,12 @@ class App extends Component {
         <Header />
         <div className="container">
           <noteContext.Provider value={contextValue}>
-            <Route
-              exact
-              path="/"
-              render={routeProps => (
-                <FolderList folders={dummyStore.folders} {...routeProps} />
-              )}
-            />
-            <Route
-              exact
-              path="/"
-              render={routeProps => (
-                <NoteListMain notes={dummyStore.notes} {...routeProps} />
-              )}
-            />
-            <Route
-              path="/folder/:folderID"
-              render={routeProps => (
-                <FolderList folders={dummyStore.folders} {...routeProps} />
-              )}
-            />
-            <Route
-              path="/folder/:folderID"
-              render={routeProps => (
-                <NoteListFiltered notes={dummyStore.notes} {...routeProps} />
-              )}
-            />
-            <Route
-              path="/note/:noteID"
-              render={routeProps => (
-                <Back
-                  {...routeProps}
-                  notes={dummyStore.notes}
-                  folders={dummyStore.notes}
-                />
-              )}
-            />
-            <Route
-              path="/note/:noteID"
-              render={routeProps => (
-                <NoteDetails notes={dummyStore.notes} {...routeProps} />
-              )}
-            />
+            <Route exact path="/" component={FolderList} />
+            <Route exact path="/" component={NoteListMain} />
+            <Route path="/folder/:folderID" component={FolderList} />
+            <Route path="/folder/:folderID" component={NoteListFiltered} />
+            <Route path="/note/:noteID" component={Back} />
+            <Route path="/note/:noteID" component={NoteDetails} />
           </noteContext.Provider>
         </div>
       </div>
