@@ -3,3 +3,7 @@
   margin: 5px;
   padding: 10px;
 }
+
+.active {
+  background-color: blue;
+}

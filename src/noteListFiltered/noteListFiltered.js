@@ -16,8 +16,8 @@ class NoteListFiltered extends Component {
       }
     });
 
-    console.log(matchingNotes);
-    console.log(this.props);
+    // console.log(matchingNotes);
+    // console.log(this.props);
 
     return (
       <div className="noteListMain">

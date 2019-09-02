@@ -3,13 +3,16 @@ import Header from "./header/header";
 import FolderList from "./folderList/folderList";
 import dummyStore from "./dummy-store";
 import NoteListMain from "./noteListMain/noteListMain";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+import NoteListFiltered from "./noteListFiltered/noteListFiltered";
+import NoteDetails from "./noteDetails/noteDetails";
+import Back from "./back/back";
 import "./App.css";
 
 class App extends Component {
   render() {
-    console.log(dummyStore);
-    console.log(dummyStore.folders);
+    // console.log(dummyStore);
+    // console.log(dummyStore.folders);
     return (
       <div className="App">
         <Header />
@@ -17,12 +20,43 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <FolderList folders={dummyStore.folders} />}
+            render={routeProps => (
+              <FolderList folders={dummyStore.folders} {...routeProps} />
+            )}
           />
           <Route
+            exact
             path="/"
             render={routeProps => (
               <NoteListMain notes={dummyStore.notes} {...routeProps} />
+            )}
+          />
+          <Route
+            path="/folder/:folderID"
+            render={routeProps => (
+              <FolderList folders={dummyStore.folders} {...routeProps} />
+            )}
+          />
+          <Route
+            path="/folder/:folderID"
+            render={routeProps => (
+              <NoteListFiltered notes={dummyStore.notes} {...routeProps} />
+            )}
+          />
+          <Route
+            path="/note/:noteID"
+            render={routeProps => (
+              <Back
+                {...routeProps}
+                notes={dummyStore.notes}
+                folders={dummyStore.notes}
+              />
+            )}
+          />
+          <Route
+            path="/note/:noteID"
+            render={routeProps => (
+              <NoteDetails notes={dummyStore.notes} {...routeProps} />
             )}
           />
         </div>

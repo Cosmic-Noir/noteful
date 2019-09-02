@@ -5,7 +5,12 @@ import "./noteListMain.css";
 class NoteListMain extends Component {
   render() {
     const notes = this.props.notes.map(note => (
-      <Note id={note.id} name={note.name} modified={note.modified} />
+      <Note
+        key={note.id}
+        id={note.id}
+        name={note.name}
+        modified={note.modified}
+      />
     ));
     console.log(notes);
     return (
