@@ -25,6 +25,7 @@ class NoteDetails extends Component {
           id={selectedNote.id}
           name={selectedNote.name}
           modified={selectedNote.modified}
+          onDeleteNote={this.handleDeleteNote}
         />
         <p className="content">{selectedNote.content}</p>
       </div>
