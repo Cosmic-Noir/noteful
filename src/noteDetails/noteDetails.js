@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
+import Note from "../note/note";
 import "./noteDetails.css";
 
 class NoteDetails extends Component {
   static contextType = noteContext;
+
+  handleDeleteNote = noteId => {
+    this.props.history.push(`/`);
+  };
+
   render() {
     const selectedNote = this.context.notes.find(note => {
       if (note.id === this.props.match.params.noteID) {
@@ -14,8 +20,13 @@ class NoteDetails extends Component {
     // console.log(selectedNote);
     return (
       <div className="noteDetails">
-        <h3 className="noteTitle">{selectedNote.name}</h3>
-        <h5 className="modified">{selectedNote.modified}</h5>
+        <Note
+          key={selectedNote.id}
+          id={selectedNote.id}
+          name={selectedNote.name}
+          modified={selectedNote.modified}
+          handlClickDelete={this.handleDeleteNote}
+        />
         <p className="content">{selectedNote.content}</p>
         <button>Delete</button>
       </div>

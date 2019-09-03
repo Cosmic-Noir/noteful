@@ -41,15 +41,20 @@ class Note extends Component {
   render() {
     // const note = this.props.find(this.props.id);
     // console.log(note);
+    const { name, id, modified } = this.props;
     return (
       <noteContext.Consumer>
         {context => (
           <div className="note">
             <h4 className="noteTitle">
-              <Link to={`/note/${this.props.id}`}>{this.props.name}</Link>
+              <Link to={`/note/${this.props.id}`}>{name}</Link>
             </h4>
-            <h5 className="modified">{this.props.modified}</h5>
-            <button className="delete" onClick={this.hanldeClickDelete}>
+            <h5 className="modified">{modified}</h5>
+            <button
+              type="button"
+              className="delete"
+              onClick={this.handlClickDelete}
+            >
               Delete
             </button>
           </div>
