@@ -25,10 +25,8 @@ class NoteDetails extends Component {
           id={selectedNote.id}
           name={selectedNote.name}
           modified={selectedNote.modified}
-          handlClickDelete={this.handleDeleteNote}
         />
         <p className="content">{selectedNote.content}</p>
-        <button>Delete</button>
       </div>
     );
   }
