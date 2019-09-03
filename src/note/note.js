@@ -30,8 +30,8 @@ class Note extends Component {
         return res.json();
       })
       .then(() => {
+        this.props.onDeleteNote();
         this.context.deleteNote(noteId);
-        this.props.onDeleteNote(noteId);
       })
       .catch(error => {
         console.log(error);

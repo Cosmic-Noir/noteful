@@ -6,7 +6,7 @@ import "./noteDetails.css";
 class NoteDetails extends Component {
   static contextType = noteContext;
 
-  handleDeleteNote = noteId => {
+  handleDeleteNote = () => {
     this.props.history.push(`/`);
   };
 
