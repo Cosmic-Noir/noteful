@@ -8,6 +8,7 @@ import NoteListFiltered from "./noteListFiltered/noteListFiltered";
 import NoteDetails from "./noteDetails/noteDetails";
 import Back from "./back/back";
 import noteContext from "./noteContext";
+import AddFolder from "./addFolder/addFolder";
 import "./App.css";
 
 class App extends Component {
