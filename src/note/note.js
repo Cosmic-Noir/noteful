@@ -41,7 +41,7 @@ class Note extends Component {
   render() {
     // const note = this.props.find(this.props.id);
     // console.log(note);
-    const { name, id, modified } = this.props;
+    const { name, modified } = this.props;
     return (
       <noteContext.Consumer>
         {context => (

@@ -23,6 +23,7 @@ class App extends Component {
       folders: folders,
       error: null
     });
+    console.log("Folders rechecked");
   };
 
   setNotes = notes => {
@@ -84,7 +85,9 @@ class App extends Component {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      deleteNote: this.deleteNote
+      deleteNote: this.deleteNote,
+      getFolders: this.getFolders,
+      getNotes: this.getNotes
     };
     // console.log(dummyStore);
     // console.log(dummyStore.folders);

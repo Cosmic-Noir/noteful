@@ -15,7 +15,6 @@ class NoteListMain extends Component {
         modified={note.modified}
       />
     ));
-    console.log(notes);
     return (
       <div className="noteListMain">
         <h3 className="noteListMainTitle">All Notes:</h3>
