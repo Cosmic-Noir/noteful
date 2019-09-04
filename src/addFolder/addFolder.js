@@ -9,11 +9,28 @@ class AddFolder extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const folderName = this.folderName.current.value;
+    console.log(folderName);
+  }
+
+  postFolder(folderName) {
+    const url = "http://localhost:9090/folders";
+    let id = Math.floor(Math.random() * 1000);
+    let folder = { id: id, name: folderName };
+    fetch(url, {
+      method: "post",
+      body: JSON.stringify(folder)
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error(res.status);
+      }
+      return res.json();
+    });
   }
 
   render() {
     return (
-      <form className="addFolder">
+      <form className="addFolder" onSubmit={e => this.handleSubmit(e)}>
         <h2>Add Folder:</h2>
         <label htmlFor="folderName">Folder Name:</label>
         <input
@@ -23,7 +40,7 @@ class AddFolder extends Component {
           id="folderName"
           ref={this.folderName}
         ></input>
-        <button type="submit" classname="addFolder__button">
+        <button type="submit" className="addFolder__button">
           Add
         </button>
       </form>

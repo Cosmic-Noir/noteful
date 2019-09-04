@@ -99,6 +99,8 @@ class App extends Component {
             <Route path="/folder/:folderID" component={NoteListFiltered} />
             <Route path="/note/:noteID" component={Back} />
             <Route path="/note/:noteID" component={NoteDetails} />
+            <Route path="/addFolder" component={Back} />
+            <Route path="/addFolder" component={AddFolder} />
           </noteContext.Provider>
         </div>
       </div>
