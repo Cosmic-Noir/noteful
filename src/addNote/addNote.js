@@ -5,9 +5,34 @@ import { Link } from "react-router-dom";
 class AddNote extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      noteTitle: {
+        value: ""
+      },
+      noteContent: {
+        value: ""
+      },
+      noteFolder: {
+        value: ""
+      }
+    };
+
     this.noteTitle = React.createRef();
     this.noteContent = React.createRef();
     this.noteFolder = React.createRef();
+  }
+
+  updateTitle(noteTitle) {
+    this.setState({ noteTitle: { value: noteTitle } });
+  }
+
+  updateContent(noteContent) {
+    this.setState({ noteContent: { value: noteContent } });
+  }
+
+  updateFolder(noteFolder) {
+    this.setState({ noteFolder: { value: noteFolder } });
   }
 
   static defaultProps = {
@@ -18,9 +43,9 @@ class AddNote extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const noteTitle = this.noteTitle.current.value;
-    const noteFolder = this.noteFolder.current.value;
-    const noteContent = this.noteContent.current.value;
+    const noteTitle = this.state.noteTitle.value;
+    const noteFolder = this.state.noteFolder.value;
+    const noteContent = this.state.noteContent.value;
     let time = new Date();
     time = time.toGMTString();
 
@@ -79,14 +104,16 @@ class AddNote extends Component {
           className="noteTitle__input"
           name="noteTitle"
           id="noteTitle"
-          ref={this.noteTitle}
+          //   ref={this.noteTitle}
+          onChange={e => this.updateTitle(e.target.value)}
         ></input>
         <label htmlFor="noteFolder">Folder:</label>
         <select
           className="noteFolder__input"
           name="noteFolder"
           id="noteFolder"
-          ref={this.noteFolder}
+          //   ref={this.noteFolder}
+          onChange={e => this.updateFolder(e.target.value)}
         >
           {folderOptions}
         </select>
@@ -97,7 +124,8 @@ class AddNote extends Component {
           className="noteContent__input"
           name="noteContent"
           id="noteContent"
-          ref={this.noteContent}
+          //   ref={this.noteContent}
+          onChange={e => this.updateContent(e.target.value)}
         ></input>
         <button type="submit">Add</button>
       </form>
