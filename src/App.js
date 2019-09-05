@@ -9,6 +9,7 @@ import NoteDetails from "./noteDetails/noteDetails";
 import Back from "./back/back";
 import noteContext from "./noteContext";
 import AddFolder from "./addFolder/addFolder";
+import AddNote from "./addNote/addNote";
 import "./App.css";
 
 class App extends Component {
@@ -104,6 +105,8 @@ class App extends Component {
             <Route path="/note/:noteID" component={NoteDetails} />
             <Route path="/addFolder" component={Back} />
             <Route path="/addFolder" component={AddFolder} />
+            <Route path="/addNote" component={Back} />
+            <Route path="/addNote" component={AddNote} />
           </noteContext.Provider>
         </div>
       </div>

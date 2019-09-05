@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import noteContext from "../noteContext";
 
 class AddFolder extends Component {
-  static defaultProps = {
-    getFolders: () => {}
-  };
-
-  static contextType = noteContext;
-
   constructor(props) {
     super(props);
     this.state = {};
     this.folderName = React.createRef();
   }
+
+  static defaultProps = {
+    getFolders: () => {}
+  };
+
+  static contextType = noteContext;
 
   handleSubmit(event) {
     event.preventDefault();
@@ -21,7 +21,7 @@ class AddFolder extends Component {
     this.postFolder(folderName);
   }
 
-  postFolder(folderName) {
+  postFolder = folderName => {
     const url = "http://localhost:9090/folders";
     let folder = { name: folderName };
     fetch(url, {
@@ -44,7 +44,7 @@ class AddFolder extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
+  };
 
   render() {
     return (

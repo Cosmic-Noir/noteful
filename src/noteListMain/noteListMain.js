@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Note from ".././note/note";
 import noteContext from "../noteContext";
+import { Link } from "react-router-dom";
 import "./noteListMain.css";
 
 class NoteListMain extends Component {
@@ -19,7 +20,9 @@ class NoteListMain extends Component {
       <div className="noteListMain">
         <h3 className="noteListMainTitle">All Notes:</h3>
         {notes}
-        <button className="addNote">Add Note</button>
+        <Link to="/addNote">
+          <button className="addNote">Add Note</button>
+        </Link>
       </div>
     );
   }

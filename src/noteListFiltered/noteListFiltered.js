@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
+import { Link } from "react-router-dom";
 import Note from ".././note/note";
 
 class NoteListFiltered extends Component {
@@ -25,7 +26,9 @@ class NoteListFiltered extends Component {
       <div className="noteListMain">
         <h3 className="noteListMainTitle">Matching Folder Notes:</h3>
         {matchingNotes}
-        <button className="addNote">Add Note</button>
+        <Link to="/addNote">
+          <button className="addNote">Add Note</button>
+        </Link>
       </div>
     );
   }
