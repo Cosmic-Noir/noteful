@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from "../config";
 import noteContext from "../noteContext";
+import NotefulError from "../notefulError/notefulError";
 import "./note.css";
 
 class Note extends Component {
@@ -45,19 +46,21 @@ class Note extends Component {
     return (
       <noteContext.Consumer>
         {context => (
-          <div className="note">
-            <h4 className="noteTitle">
-              <Link to={`/note/${this.props.id}`}>{name}</Link>
-            </h4>
-            <h5 className="modified">{modified}</h5>
-            <button
-              type="button"
-              className="delete"
-              onClick={this.handlClickDelete}
-            >
-              Delete
-            </button>
-          </div>
+          <NotefulError>
+            <div className="note">
+              <h4 className="noteTitle">
+                <Link to={`/note/${this.props.id}`}>{name}</Link>
+              </h4>
+              <h5 className="modified">{modified}</h5>
+              <button
+                type="button"
+                className="delete"
+                onClick={this.handlClickDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </NotefulError>
         )}
       </noteContext.Consumer>
     );

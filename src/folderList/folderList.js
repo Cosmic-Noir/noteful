@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Folder from ".././folder/folder";
 import noteContext from "../noteContext";
 import { Link } from "react-router-dom";
+import NotefulError from "../notefulError/notefulError";
 import "./folderList.css";
 
 class folderList extends Component {
@@ -12,13 +13,15 @@ class folderList extends Component {
       <Folder {...folder} key={folder.id} />
     ));
     return (
-      <div className="folderList">
-        <h2>Folders:</h2>
-        {folders}
-        <Link to="/addFolder">
-          <button className="addFolder">Add Folder</button>
-        </Link>
-      </div>
+      <NotefulError>
+        <div className="folderList">
+          <h2>Folders:</h2>
+          {folders}
+          <Link to="/addFolder">
+            <button className="addFolder">Add Folder</button>
+          </Link>
+        </div>
+      </NotefulError>
     );
   }
 }

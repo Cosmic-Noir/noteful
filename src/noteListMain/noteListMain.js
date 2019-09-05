@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Note from ".././note/note";
 import noteContext from "../noteContext";
 import { Link } from "react-router-dom";
+import NotefulError from "../notefulError/notefulError";
 import "./noteListMain.css";
 
 class NoteListMain extends Component {
@@ -18,11 +19,13 @@ class NoteListMain extends Component {
     ));
     return (
       <div className="noteListMain">
-        <h3 className="noteListMainTitle">All Notes:</h3>
-        {notes}
-        <Link to="/addNote">
-          <button className="addNote">Add Note</button>
-        </Link>
+        <NotefulError>
+          <h3 className="noteListMainTitle">All Notes:</h3>
+          {notes}
+          <Link to="/addNote">
+            <button className="addNote">Add Note</button>
+          </Link>
+        </NotefulError>
       </div>
     );
   }
