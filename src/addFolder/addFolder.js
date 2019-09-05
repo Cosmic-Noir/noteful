@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ValidationError from "../validationError";
 import noteContext from "../noteContext";
+import PropTypes from "prop-types";
 
 class AddFolder extends Component {
   constructor(props) {
@@ -92,3 +93,7 @@ class AddFolder extends Component {
 }
 
 export default AddFolder;
+
+AddFolder.propTypes = {
+  getFolders: PropTypes.func.isRequired
+};

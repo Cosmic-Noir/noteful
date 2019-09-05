@@ -16,7 +16,7 @@ class Note extends Component {
     e.preventDefault();
     const noteId = this.props.id;
 
-    fetch(config.API_ENDPOINT + "/notes/" + `${noteId}`, {
+    fetch(config.API_ENDPOINT + `/notes/${noteId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json"

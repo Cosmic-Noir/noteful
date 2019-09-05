@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./header/header";
 import FolderList from "./folderList/folderList";
-// import dummyStore from "./dummy-store";
 import NoteListMain from "./noteListMain/noteListMain";
 import { Route } from "react-router-dom";
 import NoteListFiltered from "./noteListFiltered/noteListFiltered";
@@ -24,7 +23,6 @@ class App extends Component {
       folders: folders,
       error: null
     });
-    console.log("Folders rechecked");
   };
 
   setNotes = notes => {

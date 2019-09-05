@@ -15,6 +15,7 @@ class NoteDetails extends Component {
       if (note.id === this.props.match.params.noteID) {
         return note;
       }
+      return new Error("Error populating note list.");
     });
 
     // console.log(selectedNote);

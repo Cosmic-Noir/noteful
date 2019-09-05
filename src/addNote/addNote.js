@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
 import ValidationError from "../validationError";
-import { Link } from "react-router-dom";
 
 class AddNote extends Component {
   constructor(props) {
@@ -81,7 +80,7 @@ class AddNote extends Component {
       .then(() => {
         this.context.getNotes();
       })
-      .then(console.log("Request succesful!"))
+      // .then(console.log("Request succesful!"))
       .catch(error => {
         console.log(error);
       });
@@ -100,13 +99,6 @@ class AddNote extends Component {
       return "Content is required.";
     }
   };
-
-  //   validateFolder = () => {
-  //     const folder = this.state.noteFolder.value.trim();
-  //     if (content.length === 0) {
-  //       return "Content is required.";
-  //     }
-  //   };
 
   render() {
     const folderOptions = this.context.folders.map(folder => {

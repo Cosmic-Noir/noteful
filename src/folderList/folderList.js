@@ -16,9 +16,12 @@ class folderList extends Component {
       <NotefulError>
         <div className="folderList">
           <h2>Folders:</h2>
+          <Link to="/">
+            <button className="button">All</button>
+          </Link>
           {folders}
           <Link to="/addFolder">
-            <button className="addFolder">Add Folder</button>
+            <button className="button">Add Folder</button>
           </Link>
         </div>
       </NotefulError>

@@ -1,3 +1,15 @@
+.button {
+  background: white;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+}
+
+.button:hover {
+  background: lightblue;
+}
+
 .folderList {
   border: 1px solid black;
   padding: 20px;
