@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
+import ValidationError from "../validationError";
 import { Link } from "react-router-dom";
 
 class AddNote extends Component {
@@ -8,13 +9,16 @@ class AddNote extends Component {
 
     this.state = {
       noteTitle: {
-        value: ""
+        value: "",
+        touched: false
       },
       noteContent: {
-        value: ""
+        value: "",
+        touched: false
       },
       noteFolder: {
-        value: ""
+        value: "",
+        touched: false
       }
     };
 
@@ -24,15 +28,15 @@ class AddNote extends Component {
   }
 
   updateTitle(noteTitle) {
-    this.setState({ noteTitle: { value: noteTitle } });
+    this.setState({ noteTitle: { value: noteTitle, touched: true } });
   }
 
   updateContent(noteContent) {
-    this.setState({ noteContent: { value: noteContent } });
+    this.setState({ noteContent: { value: noteContent, touched: true } });
   }
 
   updateFolder(noteFolder) {
-    this.setState({ noteFolder: { value: noteFolder } });
+    this.setState({ noteFolder: { value: noteFolder, touched: true } });
   }
 
   static defaultProps = {
@@ -83,6 +87,27 @@ class AddNote extends Component {
       });
   };
 
+  validateTitle = () => {
+    const title = this.state.noteTitle.value.trim();
+    if (title.length === 0) {
+      return "Title is required.";
+    }
+  };
+
+  validateContent = () => {
+    const content = this.state.noteContent.value.trim();
+    if (content.length === 0) {
+      return "Content is required.";
+    }
+  };
+
+  //   validateFolder = () => {
+  //     const folder = this.state.noteFolder.value.trim();
+  //     if (content.length === 0) {
+  //       return "Content is required.";
+  //     }
+  //   };
+
   render() {
     const folderOptions = this.context.folders.map(folder => {
       return (
@@ -107,6 +132,9 @@ class AddNote extends Component {
           //   ref={this.noteTitle}
           onChange={e => this.updateTitle(e.target.value)}
         ></input>
+        {/* {this.state.noteTitle.touched && ( */}
+        <ValidationError message={this.validateTitle()} />
+        {/* )} */}
         <label htmlFor="noteFolder">Folder:</label>
         <select
           className="noteFolder__input"
@@ -127,6 +155,9 @@ class AddNote extends Component {
           //   ref={this.noteContent}
           onChange={e => this.updateContent(e.target.value)}
         ></input>
+        {/* {this.state.noteContent.touched && ( */}
+        <ValidationError message={this.validateContent()} />
+        {/* )} */}
         <button type="submit">Add</button>
       </form>
     );
