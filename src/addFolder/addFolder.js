@@ -19,6 +19,7 @@ class AddFolder extends Component {
     const folderName = this.folderName.current.value;
     console.log(folderName);
     this.postFolder(folderName);
+    this.props.history.push("/");
   }
 
   postFolder = folderName => {

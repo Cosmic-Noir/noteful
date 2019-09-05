@@ -25,6 +25,7 @@ class AddNote extends Component {
     time = time.toGMTString();
 
     this.postNote(noteTitle, noteFolder, noteContent, time);
+    this.props.history.push("/");
   }
 
   postNote = (title, folder, content, time) => {
