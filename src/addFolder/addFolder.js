@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import ValidationError from "../validationError";
 import noteContext from "../noteContext";
 
 class AddFolder extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      folderName: {
+        value: "",
+        touched: false
+      }
+    };
     this.folderName = React.createRef();
   }
 
@@ -14,9 +20,20 @@ class AddFolder extends Component {
 
   static contextType = noteContext;
 
+  updateFolder = folderName => {
+    this.setState({ folderName: { value: folderName, touched: true } });
+  };
+
+  validateFolder = () => {
+    const folder = this.state.folderName.value.trim();
+    if (folder.length === 0) {
+      return "Title is required.";
+    }
+  };
+
   handleSubmit(event) {
     event.preventDefault();
-    const folderName = this.folderName.current.value;
+    const folderName = this.state.folderName.value;
     console.log(folderName);
     this.postFolder(folderName);
     this.props.history.push("/");
@@ -57,8 +74,13 @@ class AddFolder extends Component {
           className="folderName__input"
           name="folderName"
           id="folderName"
-          ref={this.folderName}
+          // ref={this.folderName}
+          onChange={e => this.updateFolder(e.target.value)}
         ></input>
+        {this.state.folderName.touched && (
+          <ValidationError message={this.validateFolder()} />
+        )}
+
         <button type="submit" className="addFolder__button">
           Add
         </button>
