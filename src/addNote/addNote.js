@@ -21,15 +21,19 @@ class AddNote extends Component {
     const noteTitle = this.noteTitle.current.value;
     const noteFolder = this.noteFolder.current.value;
     const noteContent = this.noteContent.current.value;
-    this.postNote(noteTitle, noteFolder, noteContent);
+    let time = new Date();
+    time = time.toGMTString();
+
+    this.postNote(noteTitle, noteFolder, noteContent, time);
   }
 
-  postNote = (title, folder, content) => {
+  postNote = (title, folder, content, time) => {
     const url = "http://localhost:9090/notes";
     let note = {
       name: title,
       folderId: folder,
-      content: content
+      content: content,
+      modified: time
     };
     fetch(url, {
       method: "post",
