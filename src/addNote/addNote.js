@@ -132,9 +132,9 @@ class AddNote extends Component {
           //   ref={this.noteTitle}
           onChange={e => this.updateTitle(e.target.value)}
         ></input>
-        {/* {this.state.noteTitle.touched && ( */}
-        <ValidationError message={this.validateTitle()} />
-        {/* )} */}
+        {this.state.noteTitle.touched && (
+          <ValidationError message={this.validateTitle()} />
+        )}
         <label htmlFor="noteFolder">Folder:</label>
         <select
           className="noteFolder__input"
@@ -155,9 +155,9 @@ class AddNote extends Component {
           //   ref={this.noteContent}
           onChange={e => this.updateContent(e.target.value)}
         ></input>
-        {/* {this.state.noteContent.touched && ( */}
-        <ValidationError message={this.validateContent()} />
-        {/* )} */}
+        {this.state.noteContent.touched && (
+          <ValidationError message={this.validateContent()} />
+        )}
         <button type="submit">Add</button>
       </form>
     );
