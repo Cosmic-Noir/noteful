@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import noteContext from "../noteContext";
 import { Link } from "react-router-dom";
+import noteContext from "../noteContext";
+import PropTypes from "prop-types";
 import Note from ".././note/note";
 
 class NoteListFiltered extends Component {
@@ -20,9 +21,6 @@ class NoteListFiltered extends Component {
       }
     });
 
-    // console.log(matchingNotes);
-    // console.log(this.props);
-
     return (
       <div className="noteListMain">
         <h3 className="noteListMainTitle">Matching Folder Notes:</h3>
@@ -36,3 +34,7 @@ class NoteListFiltered extends Component {
 }
 
 export default NoteListFiltered;
+
+NoteListFiltered.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired
+};
