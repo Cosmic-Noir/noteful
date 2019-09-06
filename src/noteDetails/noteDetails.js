@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
 import Note from "../note/note";
+import PropTypes from "prop-types";
 import "./noteDetails.css";
 
 class NoteDetails extends Component {
@@ -34,3 +35,7 @@ class NoteDetails extends Component {
 }
 
 export default NoteDetails;
+
+NoteDetails.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object)
+};
