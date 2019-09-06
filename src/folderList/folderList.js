@@ -33,5 +33,5 @@ class FolderList extends Component {
 export default FolderList;
 
 FolderList.propTypes = {
-  folders: PropTypes.arrayOf(PropTypes.object).isRequired
+  folders: PropTypes.arrayOf(PropTypes.object)
 };
