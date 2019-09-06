@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import config from "../config";
 import noteContext from "../noteContext";
 import NotefulError from "../notefulError/notefulError";
+import PropTypes from "prop-types";
+
 import "./note.css";
 
 class Note extends Component {
   static defaultProps = {
-    onDeleteNote: () => {}
+    onDeleteNote: () => {},
+    deleteNote: () => {}
   };
 
   static contextType = noteContext;
@@ -40,16 +43,14 @@ class Note extends Component {
   };
 
   render() {
-    // const note = this.props.find(this.props.id);
-    // console.log(note);
-    const { name, modified } = this.props;
+    const { name, modified, id } = this.props;
     return (
       <noteContext.Consumer>
         {context => (
           <NotefulError>
             <div className="note">
               <h4 className="noteTitle">
-                <Link to={`/note/${this.props.id}`}>{name}</Link>
+                <Link to={`/note/${id}`}>{name}</Link>
               </h4>
               <h5 className="modified">{modified}</h5>
               <button
@@ -68,3 +69,11 @@ class Note extends Component {
 }
 
 export default Note;
+
+Note.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  modified: PropTypes.string.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  deleteNote: PropTypes.func.isRequired
+};
