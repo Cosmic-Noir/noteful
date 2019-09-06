@@ -84,7 +84,11 @@ class AddFolder extends Component {
           <ValidationError message={this.validateFolder()} />
         )}
 
-        <button type="submit" className="addFolder__button">
+        <button
+          type="submit"
+          className="addFolder__button"
+          disabled={this.validateFolder()}
+        >
           Add
         </button>
       </form>
