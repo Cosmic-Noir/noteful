@@ -6,7 +6,7 @@ import NotefulError from "../notefulError/notefulError";
 import PropTypes from "prop-types";
 import "./folderList.css";
 
-class folderList extends Component {
+class FolderList extends Component {
   static contextType = noteContext;
 
   render() {
@@ -15,7 +15,7 @@ class folderList extends Component {
     ));
     return (
       <NotefulError>
-        <div className="folderList">
+        <div className="FolderList">
           <h2>Folders:</h2>
           <Link to="/">
             <button className="button">All</button>
@@ -30,8 +30,8 @@ class folderList extends Component {
   }
 }
 
-export default folderList;
+export default FolderList;
 
-folderList.propTypes = {
+FolderList.propTypes = {
   folders: PropTypes.arrayOf(PropTypes.object).isRequired
 };
