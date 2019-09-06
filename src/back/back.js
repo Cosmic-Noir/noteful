@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./back.css";
 
 class Back extends Component {
@@ -14,3 +15,7 @@ class Back extends Component {
 }
 
 export default Back;
+
+Back.propTypes = {
+  history: PropTypes.object.isRequired
+};

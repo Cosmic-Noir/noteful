@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
 import ValidationError from "../validationError";
+import PropTypes from "prop-types";
 
 class AddNote extends Component {
   constructor(props) {
@@ -157,3 +158,7 @@ class AddNote extends Component {
 }
 
 export default AddNote;
+
+AddNote.propTypes = {
+  getNotes: PropTypes.func.isRequired
+};
