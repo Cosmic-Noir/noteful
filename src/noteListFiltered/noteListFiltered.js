@@ -36,5 +36,5 @@ class NoteListFiltered extends Component {
 export default NoteListFiltered;
 
 NoteListFiltered.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.object).isRequired
+  notes: PropTypes.arrayOf(PropTypes.object)
 };

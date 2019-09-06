@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import noteContext from "../noteContext";
 import ValidationError from "../validationError";
+import "./addNote.css";
 
 class AddNote extends Component {
   constructor(props) {
@@ -150,7 +151,12 @@ class AddNote extends Component {
         {this.state.noteContent.touched && (
           <ValidationError message={this.validateContent()} />
         )}
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          disabled={this.validateTitle() || this.validateContent()}
+        >
+          Add
+        </button>
       </form>
     );
   }

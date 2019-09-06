@@ -4,6 +4,10 @@
   padding: 10px;
 }
 
+.folder:hover {
+  background: lightblue;
+}
+
 .active {
   background-color: lightblue;
 }
