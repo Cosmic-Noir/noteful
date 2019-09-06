@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Note from ".././note/note";
-import noteContext from "../noteContext";
 import { Link } from "react-router-dom";
 import NotefulError from "../notefulError/notefulError";
+import noteContext from "../noteContext";
+import Note from ".././note/note";
+import PropTypes from "prop-types";
 import "./noteListMain.css";
 
 class NoteListMain extends Component {
@@ -32,3 +33,7 @@ class NoteListMain extends Component {
 }
 
 export default NoteListMain;
+
+NoteListMain.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object)
+};
