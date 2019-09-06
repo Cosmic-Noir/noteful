@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Folder from ".././folder/folder";
 import noteContext from "../noteContext";
-import { Link } from "react-router-dom";
 import NotefulError from "../notefulError/notefulError";
+import PropTypes from "prop-types";
 import "./folderList.css";
 
 class folderList extends Component {
@@ -30,3 +31,7 @@ class folderList extends Component {
 }
 
 export default folderList;
+
+folderList.propTypes = {
+  folders: PropTypes.arrayOf(PropTypes.object).isRequired
+};

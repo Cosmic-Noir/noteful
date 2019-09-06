@@ -6,6 +6,7 @@ import Note from ".././note/note";
 class NoteListFiltered extends Component {
   static contextType = noteContext;
   render() {
+    // eslint-disable-next-line
     const matchingNotes = this.context.notes.map(note => {
       if (note.folderId === this.props.match.params.folderID) {
         return (
