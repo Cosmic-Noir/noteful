@@ -123,8 +123,11 @@ class AddNote extends Component {
           className="noteTitle__input"
           name="noteTitle"
           id="noteTitle"
-          //   ref={this.noteTitle}
+          ref={this.noteTitle}
           onChange={e => this.updateTitle(e.target.value)}
+          area-required="true"
+          aria-describedby="addNote"
+          aria-label="Enter note title"
         ></input>
         {this.state.noteTitle.touched && (
           <ValidationError message={this.validateTitle()} />
@@ -139,24 +142,29 @@ class AddNote extends Component {
         >
           {folderOptions}
         </select>
-        <label htmlFor="noteContent">Content:</label>
-
+        <label htmlFor="noteContent" id="addContent">
+          Add Content:
+        </label>
         <input
           type="text"
           className="noteContent__input"
           name="noteContent"
           id="noteContent"
-          //   ref={this.noteContent}
+          ref={this.noteContent}
           onChange={e => this.updateContent(e.target.value)}
+          aria-required="true"
+          aira-describedby="addContent"
+          aria-label="Enter note title"
         ></input>
         {this.state.noteContent.touched && (
           <ValidationError message={this.validateContent()} />
         )}
         <button
+          id="addNote"
           type="submit"
           disabled={this.validateTitle() || this.validateContent()}
         >
-          Add
+          Add Note
         </button>
       </form>
     );
