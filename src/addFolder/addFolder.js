@@ -78,19 +78,23 @@ class AddFolder extends Component {
           className="folderName__input"
           name="folderName"
           id="folderName"
-          // ref={this.folderName}
+          ref={this.folderName}
           onChange={e => this.updateFolder(e.target.value)}
+          aria-required="true"
+          aria-describedby="addFolder"
+          aria-label="Enter Folder Name"
         ></input>
         {this.state.folderName.touched && (
           <ValidationError message={this.validateFolder()} />
         )}
 
         <button
+          id="addFolder"
           type="submit"
           className="addFolder__button"
           disabled={this.validateFolder()}
         >
-          Add
+          Add Folder
         </button>
       </form>
     );
