@@ -35,10 +35,11 @@ class AddFolder extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const folderName = this.state.folderName.value;
-    console.log(folderName);
+    // console.log(folderName);
     if (this.state.folderName.value !== "") {
       this.postFolder(folderName);
       this.props.history.push("/");
+      this.folderName.current.focus();
     }
   }
 
