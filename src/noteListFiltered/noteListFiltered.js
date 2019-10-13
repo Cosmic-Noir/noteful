@@ -9,7 +9,9 @@ class NoteListFiltered extends Component {
   render() {
     // eslint-disable-next-line
     const matchingNotes = this.context.notes.map(note => {
-      if (note.folder_id === this.props.match.params.folder_id) {
+      console.log(note.folder_id);
+      console.log(this.props.match.params.folderID);
+      if (note.folder_id == this.props.match.params.folderID) {
         return (
           <Note
             key={note.id}
