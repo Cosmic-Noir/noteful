@@ -16,6 +16,7 @@ class Note extends Component {
   static contextType = noteContext;
 
   deleteNoteRequest = noteId => {
+    console.log(config.API_ENDPOINT + `notes/${noteId}`);
     fetch(config.API_ENDPOINT + `notes/${noteId}`, {
       method: "DELETE",
       headers: {
@@ -27,9 +28,11 @@ class Note extends Component {
           return res.json().then(error => Promise.reject(error));
         }
       })
-      .then(data => {
+      .then(() => {
         console.log(noteId);
         this.context.deleteNote(noteId);
+        this.props.history.push("/");
+        // Need access to history, or to function that has access to history
         console.log("Delete request sent");
       })
       .catch(error => {
@@ -38,7 +41,6 @@ class Note extends Component {
   };
 
   render() {
-    // const { title, id } = this.props;
     return (
       <noteContext.Consumer>
         {context => (
@@ -47,8 +49,7 @@ class Note extends Component {
               <h4 className="noteTitle">
                 <Link to={`/notes/${this.props.id}`}>{this.props.title}</Link>
               </h4>
-              {/* <h5 className="modified">{modified}</h5> */}
-              <button
+              {/* <button
                 type="button"
                 className="delete"
                 onClick={() => {
@@ -56,6 +57,15 @@ class Note extends Component {
                 }}
               >
                 Delete
+              </button> */}
+              <button
+                type="button"
+                className="delete"
+                onClick={() => {
+                  this.deleteNoteRequest(this.props.id);
+                }}
+              >
+                <Link to={`/`}>Delete</Link>
               </button>
             </div>
           </NotefulError>

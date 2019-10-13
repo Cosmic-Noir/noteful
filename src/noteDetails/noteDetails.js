@@ -9,6 +9,7 @@ class NoteDetails extends Component {
 
   handleDeleteNote = () => {
     this.props.history.push(`/`);
+    console.log("handlDeleteNote ran");
   };
 
   render() {
@@ -26,9 +27,8 @@ class NoteDetails extends Component {
           id={selectedNote.id}
           content={selectedNote.content}
           title={selectedNote.title}
-          modified={selectedNote.modified}
           folder_id={selectedNote.folder_id}
-          onDeleteNote={this.handleDeleteNote}
+          onClickDelete={this.handleDeleteNote}
         />
         <p className="content">{selectedNote.content}</p>
       </div>
