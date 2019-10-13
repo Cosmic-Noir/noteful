@@ -1,9 +1,35 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import noteContext from "../noteContext";
+import config from "../config";
 import "./folder.css";
 
 class Folder extends Component {
+  static defaultProps = {
+    getFolders: () => {}
+  };
+
+  static contextType = noteContext;
+
+  deleteFolderRequest = folderId => {
+    fetch(config.API_ENDPOINT + `folders/${folderId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error));
+        }
+      })
+      .then(() => {
+        this.context.getFolders();
+        console.log(`Delete request sent for Folder Id is ${folderId}`);
+      });
+  };
+
   render() {
     return (
       <div className="folder">

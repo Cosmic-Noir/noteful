@@ -16,7 +16,7 @@ class Note extends Component {
   static contextType = noteContext;
 
   deleteNoteRequest = noteId => {
-    console.log(config.API_ENDPOINT + `notes/${noteId}`);
+    // console.log(config.API_ENDPOINT + `notes/${noteId}`);
     fetch(config.API_ENDPOINT + `notes/${noteId}`, {
       method: "DELETE",
       headers: {
