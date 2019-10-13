@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ValidationError from "../validationError";
 import noteContext from "../noteContext";
 import PropTypes from "prop-types";
+import config from "../config";
 
 class AddFolder extends Component {
   constructor(props) {
@@ -44,9 +45,8 @@ class AddFolder extends Component {
   }
 
   postFolder = folderName => {
-    const url = "http://localhost:9090/folders";
-    let folder = { name: folderName };
-    fetch(url, {
+    let folder = { folder_name: folderName };
+    fetch(config.API_ENDPOINT + "folders", {
       method: "post",
       headers: {
         "content-type": "application/json"
