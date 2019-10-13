@@ -3,6 +3,7 @@ import noteContext from "../noteContext";
 import ValidationError from "../validationError";
 import "./addNote.css";
 import PropTypes from "prop-types";
+import config from "../config";
 
 class AddNote extends Component {
   constructor(props) {
@@ -59,10 +60,10 @@ class AddNote extends Component {
   }
 
   postNote = (title, folder, content, time) => {
-    const url = "http://localhost:9090/notes";
+    const url = config.API_ENDPOINT + "notes";
     let note = {
-      name: title,
-      folderId: folder,
+      title: title,
+      folder_id: folder,
       content: content,
       modified: time
     };
@@ -106,7 +107,7 @@ class AddNote extends Component {
     const folderOptions = this.context.folders.map(folder => {
       return (
         <option key={folder.id} value={folder.id}>
-          {folder.name}
+          {folder.folder_name}
         </option>
       );
     });
