@@ -65,7 +65,7 @@ class AddNote extends Component {
       title: title,
       folder_id: folder,
       content: content,
-      modified: time
+      date_published: time
     };
     fetch(url, {
       method: "post",
