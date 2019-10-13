@@ -14,7 +14,7 @@ class NoteListMain extends Component {
       <Note
         key={note.id}
         id={note.id}
-        name={note.name}
+        title={note.title}
         modified={note.modified}
       />
     ));

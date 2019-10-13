@@ -19,7 +19,7 @@ class Note extends Component {
     e.preventDefault();
     const noteId = this.props.id;
 
-    fetch(config.API_ENDPOINT + `/notes/${noteId}`, {
+    fetch(config.API_ENDPOINT + `notes/${noteId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json"
@@ -43,16 +43,16 @@ class Note extends Component {
   };
 
   render() {
-    const { name, modified, id } = this.props;
+    // const { title, id } = this.props;
     return (
       <noteContext.Consumer>
         {context => (
           <NotefulError>
             <div className="note">
               <h4 className="noteTitle">
-                <Link to={`/note/${id}`}>{name}</Link>
+                <Link to={`/note/${this.props.id}`}>{this.props.title}</Link>
               </h4>
-              <h5 className="modified">{modified}</h5>
+              {/* <h5 className="modified">{modified}</h5> */}
               <button
                 type="button"
                 className="delete"
@@ -71,9 +71,9 @@ class Note extends Component {
 export default Note;
 
 Note.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  modified: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  // modified: PropTypes.string.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired
 };
