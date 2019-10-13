@@ -7,7 +7,9 @@ class Folder extends Component {
   render() {
     return (
       <div className="folder">
-        <NavLink to={`/folder/${this.props.id}`}>{this.props.name}</NavLink>
+        <NavLink to={`/folder/${this.props.id}`}>
+          {this.props.folder_name}
+        </NavLink>
       </div>
     );
   }
@@ -16,6 +18,6 @@ class Folder extends Component {
 export default Folder;
 
 Folder.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
 };
