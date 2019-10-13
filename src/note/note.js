@@ -15,33 +15,6 @@ class Note extends Component {
 
   static contextType = noteContext;
 
-  // handlClickDelete = e => {
-  //   e.preventDefault();
-  //   const noteId = this.props.id;
-
-  //   fetch(config.API_ENDPOINT + `notes/${noteId}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     }
-  //   })
-  //     .then(res => {
-  //       if (!res.ok) {
-  //         return res.json().then(error => {
-  //           throw error;
-  //         });
-  //       }
-  //       return res.json();
-  //     })
-  //     .then(() => {
-  //       this.props.onDeleteNote();
-  //       this.context.deleteNote(noteId);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
   deleteNoteRequest = noteId => {
     fetch(config.API_ENDPOINT + `notes/${noteId}`, {
       method: "DELETE",
@@ -55,6 +28,8 @@ class Note extends Component {
         }
       })
       .then(data => {
+        console.log(noteId);
+        this.context.deleteNote(noteId);
         console.log("Delete request sent");
       })
       .catch(error => {
