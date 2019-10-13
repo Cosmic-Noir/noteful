@@ -100,8 +100,8 @@ class App extends Component {
             <Route exact path="/" component={NoteListMain} />
             <Route path="/folder/:folderID" component={FolderList} />
             <Route path="/folder/:folderID" component={NoteListFiltered} />
-            <Route path="/note/:noteID" component={Back} />
-            <Route path="/note/:noteID" component={NoteDetails} />
+            <Route path="/notes/:noteID" component={Back} />
+            <Route path="/notes/:noteID" component={NoteDetails} />
             <Route path="/addFolder" component={Back} />
             <Route path="/addFolder" component={AddFolder} />
             <Route path="/addNote" component={Back} />

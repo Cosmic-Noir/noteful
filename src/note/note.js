@@ -50,7 +50,7 @@ class Note extends Component {
           <NotefulError>
             <div className="note">
               <h4 className="noteTitle">
-                <Link to={`/note/${this.props.id}`}>{this.props.title}</Link>
+                <Link to={`/notes/${this.props.id}`}>{this.props.title}</Link>
               </h4>
               {/* <h5 className="modified">{modified}</h5> */}
               <button

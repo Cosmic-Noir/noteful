@@ -15,7 +15,7 @@ class NoteListMain extends Component {
         key={note.id}
         id={note.id}
         title={note.title}
-        modified={note.modified}
+        folder_id={note.folder_id}
       />
     ));
     return (
