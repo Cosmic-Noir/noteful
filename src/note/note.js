@@ -15,30 +15,50 @@ class Note extends Component {
 
   static contextType = noteContext;
 
-  handlClickDelete = e => {
-    e.preventDefault();
-    const noteId = this.props.id;
+  // handlClickDelete = e => {
+  //   e.preventDefault();
+  //   const noteId = this.props.id;
 
+  //   fetch(config.API_ENDPOINT + `notes/${noteId}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "content-type": "application/json"
+  //     }
+  //   })
+  //     .then(res => {
+  //       if (!res.ok) {
+  //         return res.json().then(error => {
+  //           throw error;
+  //         });
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(() => {
+  //       this.props.onDeleteNote();
+  //       this.context.deleteNote(noteId);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+
+  deleteNoteRequest = noteId => {
     fetch(config.API_ENDPOINT + `notes/${noteId}`, {
       method: "DELETE",
       headers: {
-        "content-type": "application/json"
+        "content-type": "applicaiton/json"
       }
     })
       .then(res => {
         if (!res.ok) {
-          return res.json().then(error => {
-            throw error;
-          });
+          return res.json().then(error => Promise.reject(error));
         }
-        return res.json();
       })
-      .then(() => {
-        this.props.onDeleteNote();
-        this.context.deleteNote(noteId);
+      .then(data => {
+        console.log("Delete request sent");
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -56,7 +76,9 @@ class Note extends Component {
               <button
                 type="button"
                 className="delete"
-                onClick={this.handlClickDelete}
+                onClick={() => {
+                  this.deleteNoteRequest(this.props.id);
+                }}
               >
                 Delete
               </button>

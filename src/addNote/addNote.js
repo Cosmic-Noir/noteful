@@ -47,48 +47,6 @@ class AddNote extends Component {
 
   static contextType = noteContext;
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   const noteTitle = this.state.noteTitle.value;
-  //   const noteFolder = this.state.noteFolder.value;
-  //   const noteContent = this.state.noteContent.value;
-  //   let time = new Date();
-  //   time = time.toGMTString();
-
-  //   this.postNote(noteTitle, noteFolder, noteContent, time);
-  //   this.props.history.push("/");
-  // }
-
-  // postNote = (title, folder, content, time) => {
-  //   const url = config.API_ENDPOINT + "notes";
-  //   let note = {
-  //     title: title,
-  //     folder_id: folder,
-  //     content: content,
-  //     date_published: time
-  //   };
-  //   fetch(url, {
-  //     method: "post",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     },
-  //     body: JSON.stringify(note)
-  //   })
-  //     .then(res => {
-  //       if (!res.ok) {
-  //         throw new Error(res.status);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then(() => {
-  //       this.context.getNotes();
-  //     })
-  //     // .then(console.log("Request succesful!"))
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
   handleSubmit = e => {
     e.preventDefault();
 
