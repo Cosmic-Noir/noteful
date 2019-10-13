@@ -9,6 +9,7 @@ import Back from "./back/back";
 import noteContext from "./noteContext";
 import AddFolder from "./addFolder/addFolder";
 import AddNote from "./addNote/addNote";
+import config from "./config";
 import "./App.css";
 
 class App extends Component {
@@ -40,7 +41,7 @@ class App extends Component {
   };
 
   getFolders = () => {
-    const url = "http://localhost:9090/folders";
+    const url = config.API_ENDPOINT + "folders";
     fetch(url, {
       method: "GET",
       headers: {
@@ -58,7 +59,7 @@ class App extends Component {
   };
 
   getNotes = () => {
-    const url = "http://localhost:9090/notes";
+    const url = config.API_ENDPOINT + "notes";
     fetch(url, {
       method: "GET",
       headers: {
