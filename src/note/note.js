@@ -49,15 +49,6 @@ class Note extends Component {
               <h4 className="noteTitle">
                 <Link to={`/notes/${this.props.id}`}>{this.props.title}</Link>
               </h4>
-              {/* <button
-                type="button"
-                className="delete"
-                onClick={() => {
-                  this.deleteNoteRequest(this.props.id);
-                }}
-              >
-                Delete
-              </button> */}
               <button
                 type="button"
                 className="delete"

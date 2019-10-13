@@ -11,3 +11,7 @@
 .active {
   background-color: lightblue;
 }
+
+#folderDelete {
+  border: none;
+}

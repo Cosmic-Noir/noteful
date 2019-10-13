@@ -10,6 +10,15 @@ class Folder extends Component {
         <NavLink to={`/folder/${this.props.id}`}>
           {this.props.folder_name}
         </NavLink>
+        <button
+          type="button"
+          id="folderDelete"
+          onClick={() => {
+            this.deleteFolderRequest(this.props.id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     );
   }
