@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import noteContext from "../noteContext";
 import PropTypes from "prop-types";
 import config from "../config";
+import { thisExpression } from "@babel/types";
 
 class EditNote extends Component {
   static propTypes = {
@@ -25,6 +26,10 @@ class EditNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+  };
+
+  handleClickCancel = () => {
+    this.props.history.push("/");
   };
 
   render() {
@@ -61,6 +66,10 @@ class EditNote extends Component {
             name="content"
             id="content"
           ></input>
+          <button type="button" onClick={this.handleClickCancel}>
+            Cancel
+          </button>
+          <button type="submit">Update Note</button>
         </form>
       </section>
     );
