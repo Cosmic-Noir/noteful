@@ -47,6 +47,7 @@ class EditNote extends Component {
       })
       .then(() => {
         // this.context.updateFolders(updatedFolder);
+        this.context.getNotes();
         this.resetFields(updatedNote);
         this.props.history.push("/");
       })
@@ -69,7 +70,7 @@ class EditNote extends Component {
     this.props.history.push("/");
   };
 
-  handlChangeTitle = e => {
+  handleChangeTitle = e => {
     this.setState({ title: e.target.value });
   };
 
