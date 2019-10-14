@@ -1,6 +1,14 @@
 button {
   border: none;
 }
+
+.edit {
+  background: white;
+  border: none;
+  margin: 5px;
+  padding: 0px;
+  width: 0px;
+}
 .delete {
   background: white;
   border: none;

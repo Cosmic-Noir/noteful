@@ -54,6 +54,15 @@ class Note extends Component {
               >
                 <Link to={`/`}>Delete</Link>
               </button>
+              <button
+                type="button"
+                className="edit"
+                // onClick={() => {
+                //   this.deleteNoteRequest(this.props.id);
+                // }}
+              >
+                <Link to={`/edit`}>edit</Link>
+              </button>
             </div>
           </NotefulError>
         )}

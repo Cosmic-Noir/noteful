@@ -9,6 +9,7 @@ import Back from "./back/back";
 import noteContext from "./noteContext";
 import AddFolder from "./addFolder/addFolder";
 import AddNote from "./addNote/addNote";
+import EditNote from "./editNote/EditNote";
 import config from "./config";
 import "./App.css";
 
@@ -108,6 +109,8 @@ class App extends Component {
             <Route path="/addFolder" component={AddFolder} />
             <Route path="/addNote" component={Back} />
             <Route path="/addNote" component={AddNote} />
+            <Route path="/edit" component={Back} />
+            <Route path="/edit" component={EditNote} />
           </noteContext.Provider>
         </div>
       </div>
