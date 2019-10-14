@@ -29,11 +29,7 @@ class Note extends Component {
         }
       })
       .then(() => {
-        console.log(noteId);
         this.context.deleteNote(noteId);
-        this.props.history.push("/");
-        // Need access to history, or to function that has access to history
-        console.log("Delete request sent");
       })
       .catch(error => {
         console.error(error);
