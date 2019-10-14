@@ -110,7 +110,7 @@ class App extends Component {
             <Route path="/addNote" component={Back} />
             <Route path="/addNote" component={AddNote} />
             <Route path="/edit" component={Back} />
-            <Route path="/edit" component={EditNote} />
+            <Route path="/edit/:noteId" component={EditNote} />
           </noteContext.Provider>
         </div>
       </div>

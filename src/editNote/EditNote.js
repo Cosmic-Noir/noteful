@@ -26,11 +26,88 @@ class EditNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { noteId } = this.props.match.params;
+
+    const { id, title, content, folder_id } = this.state;
+    const updatedNote = { id, title, content, folder_id };
+
+    fetch(config.API_ENDPOINT + `notes/${noteId}`, {
+      method: "PATCH",
+      body: JSON.stringify(updatedNote),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            Promise.reject(error);
+          });
+        }
+      })
+      .then(() => {
+        // this.context.updateFolders(updatedFolder);
+        this.resetFields(updatedNote);
+        this.props.history.push("/");
+      })
+      .catch(error => {
+        console.error(error);
+        this.setState({ error });
+      });
+  };
+
+  resetFields = newFields => {
+    this.setState({
+      id: newFields.id || "",
+      title: newFields.title || "",
+      content: newFields.content || "",
+      folder_name: newFields.folder_name || ""
+    });
   };
 
   handleClickCancel = () => {
     this.props.history.push("/");
   };
+
+  handlChangeTitle = e => {
+    this.setState({ title: e.target.value });
+  };
+
+  handleChangeContent = e => {
+    this.setState({ content: e.target.value });
+  };
+
+  handleChangeFolder = e => {
+    this.setState({ folder_name: e.target.value });
+  };
+
+  componentDidMount() {
+    const { noteId } = this.props.match.params;
+
+    fetch(config.API_ENDPOINT + `notes/${noteId}`, {
+      method: "Get",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error));
+        }
+        return res.json();
+      })
+      .then(res => {
+        this.setState({
+          id: res.id,
+          title: res.title,
+          content: res.content,
+          folder_name: res.folder_name
+        });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  }
 
   render() {
     const folderOptions = this.context.folders.map(folder => {
@@ -54,7 +131,13 @@ class EditNote extends Component {
             onChange={this.handleChangeTitle}
           />
           <label htmlFor="folder_id">Folder:</label>
-          <select className="noteFolder__input" name="folder_id" id="folder_id">
+          <select
+            className="noteFolder__input"
+            name="folder_id"
+            id="folder_id"
+            value={this.state.folder_name}
+            onChange={this.handleChangeFolder}
+          >
             {folderOptions}
           </select>
           <label htmlFor="content" id="content">
@@ -65,6 +148,8 @@ class EditNote extends Component {
             className="noteContent__input"
             name="content"
             id="content"
+            value={this.state.content}
+            onChange={this.handleChangeContent}
           ></input>
           <button type="button" onClick={this.handleClickCancel}>
             Cancel

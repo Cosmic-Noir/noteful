@@ -61,7 +61,7 @@ class Note extends Component {
                 //   this.deleteNoteRequest(this.props.id);
                 // }}
               >
-                <Link to={`/edit`}>edit</Link>
+                <Link to={`/edit/${this.props.id}`}>edit</Link>
               </button>
             </div>
           </NotefulError>
