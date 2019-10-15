@@ -15,7 +15,8 @@ class NoteDetails extends Component {
   render() {
     // eslint-disable-next-line
     const selectedNote = this.context.notes.find(note => {
-      if (note.id == this.props.match.params.noteID) {
+      const numberProp = parseInt(this.props.match.params.noteID);
+      if (note.id === numberProp) {
         return note;
       }
     });
