@@ -39,8 +39,7 @@ class App extends Component {
     this.setState({
       notes: newNotes
     });
-    // this.props.history.push("/");
-    console.log("deleteNote is called with ID: " + noteId);
+    // console.log("deleteNote is called with ID: " + noteId);
   };
 
   getFolders = () => {
