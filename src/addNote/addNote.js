@@ -56,7 +56,7 @@ class AddNote extends Component {
       folder_id: folder_id.value,
       content: content.value
     };
-    console.log(note);
+    // console.log(note);
 
     this.setState({ error: null });
     fetch(config.API_ENDPOINT + "notes", {

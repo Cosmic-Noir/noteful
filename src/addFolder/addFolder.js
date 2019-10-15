@@ -62,7 +62,7 @@ class AddFolder extends Component {
       .then(() => {
         this.context.getFolders();
       })
-      .then(console.log("Request succesful!"))
+      // .then(console.log("Request succesful!"))
       .catch(error => {
         console.log(error);
       });

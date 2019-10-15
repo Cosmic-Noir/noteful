@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import noteContext from "../noteContext";
 import PropTypes from "prop-types";
 import config from "../config";
-import { thisExpression } from "@babel/types";
 
 class EditNote extends Component {
   static propTypes = {

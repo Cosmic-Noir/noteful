@@ -26,7 +26,8 @@ class Folder extends Component {
       })
       .then(() => {
         this.context.getFolders();
-        console.log(`Delete request sent for Folder Id is ${folderId}`);
+        this.context.getNotes();
+        // console.log(`Delete request sent for Folder Id ${folderId}`);
       });
   };
 
